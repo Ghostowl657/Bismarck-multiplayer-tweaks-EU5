@@ -851,7 +851,7 @@ winter_normal = {
 		category = location
 	}
 	local_army_attrition = 1
-	local_navy_attrition = 5
+	local_navy_attrition = 0
 	max_attrition = 2
 	local_monthly_food_modifier = monthly_food_productivity_unique_penalty
 	local_food_decay = 0.0025
@@ -865,7 +865,7 @@ winter_severe = {
 	}
 	movement_cost = 0.25
 	local_army_attrition = 2
-	local_navy_attrition = 10
+	local_navy_attrition = 0
 	max_attrition = 4	
 	local_monthly_food_modifier = monthly_food_productivity_extinction_penalty
 	constructions_stalled = yes

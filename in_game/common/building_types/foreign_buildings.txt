@@ -364,8 +364,8 @@ colonial_administration = {
 	build_time = colonise_build_time
 	
 	modifier = {
-		merchant_capacity_from_building = 0.2
-		merchant_power_from_building = 0.2
+		merchant_capacity_from_building = 0.5
+		merchant_power_from_building = 0.5
 	}
 	
 }
