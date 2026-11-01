@@ -1,0 +1,4 @@
+NCombat = {
+	INITIAL_OVERRUN_FACTOR = 20				# strength ratio that overruns a side outright on the first tick, default 10
+	MORALE_OVERRUN_FACTOR = 4				# strength ratio that overruns a side whose morale has collapsed, default 2
+}
