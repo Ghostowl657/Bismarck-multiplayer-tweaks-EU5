@@ -30,8 +30,8 @@ merchant_republic = {
 	government = republic
 
 	country_modifier = {
-		global_merchant_capacity_modifier = 0.50
-		trade_income = 0.20
+		global_merchant_capacity_modifier = 0.35
+		trade_income = 0.10
 		global_foreign_build_buildings_efficiency = 1.0
 
 		merchant_maintenance_efficiency = 0.50
