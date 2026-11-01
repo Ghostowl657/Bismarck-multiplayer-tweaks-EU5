@@ -1,0 +1,11 @@
+﻿{
+	"name":	"Bismarck multiplayer tweaks",
+	"id":	"bismarck",
+	"version":	"2.0",
+	"supported_game_version":	"1.3.*",
+	"short_description":	"Tweaks for multiplayer games for Bismarck's Paradox discord server.",
+	"tags":	["Balance", "Gameplay"],
+	"relationships":	[],
+	"game_custom_data":	{
+}
+}

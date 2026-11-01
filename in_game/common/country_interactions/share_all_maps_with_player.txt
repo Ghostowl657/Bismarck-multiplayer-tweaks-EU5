@@ -1,0 +1,48 @@
+﻿share_all_maps_with_player =  { 
+	type = diplomacy
+	category = CATEGORY_FRIENDLY_ACTIONS
+
+	allow = {
+        scope:actor = {
+            is_ai = no
+        }
+	}
+
+	block_when_at_war = no
+    use_enroute = no
+	
+	select_trigger = {
+		looking_for_a = country
+		target_flag = recipient
+		name = "choose_country"
+		column = {
+			data = name
+		}
+		visible = {
+            is_ai = no
+		}
+        enabled = {
+		}
+	}
+
+	effect = {
+        every_area = {
+            limit = {
+                scope:actor = {
+                    has_discovered_area = prev
+                }
+                NOT = {
+                    scope:recipient = {
+                        has_discovered_area = prev
+                    }
+                }
+            }
+            scope:recipient = {
+                discover_area = prev
+            }
+        }
+	}
+	accept = {
+		value = 100000
+	}
+}	

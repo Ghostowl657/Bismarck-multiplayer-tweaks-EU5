@@ -1,0 +1,61 @@
+﻿share_maps_with_player =  { 
+	type = diplomacy
+	category = CATEGORY_FRIENDLY_ACTIONS
+
+	allow = {
+        scope:actor = {
+            is_ai = no
+        }
+	}
+
+	block_when_at_war = no	
+    use_enroute = no
+	
+	select_trigger = {
+		looking_for_a = country
+		target_flag = recipient
+		name = "choose_country"
+		column = {
+			data = name
+		}
+		visible = {
+            is_ai = no
+		}
+        enabled = {
+		}
+	}
+
+	select_trigger = {
+		looking_for_a = area
+		target_flag = target
+		name = "share_maps_select_title"
+		none_available_msg_key = "steal_maps_no_areas"
+		column = {
+			data = name
+		}
+		visible = {
+			scope:actor = { has_discovered_area = prev }
+			NOT = { scope:recipient = { has_discovered_area = prev } }
+			
+			any_neighbor_area = {
+				scope:recipient = { 
+					has_discovered_area = prev
+				}
+			}
+		}
+	}
+
+	effect = {
+		if = {
+			limit = {
+				exists = scope:target
+			}
+			scope:recipient = {
+				discover_area = scope:target
+			}
+		}
+	}
+	accept = {
+		value = 100000
+	}
+}	

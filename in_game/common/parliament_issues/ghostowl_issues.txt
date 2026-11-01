@@ -1,0 +1,32 @@
+reiterate_direction = {
+	estate = crown_estate
+	
+	modifier_when_in_debate = {
+		monthly_complacency = -0.5
+	}
+	
+	allow = {
+		complacency >= 15
+	}
+	
+	chance = {
+		add = 2
+		add = {
+			if = { limit = { complacency >= 40 } value = 4 }
+		}
+		add = {
+			if = { limit = { complacency >= 70 } value = 8 }
+		}
+		add = {
+			if = { limit = { complacency >= 90 } value = 42 }
+		}
+	}
+	
+	on_debate_passed = {
+		add_complacency = complacency_extreme_bonus
+	}
+	
+	on_debate_failed = {
+		parliament_debate_failed_effect = yes
+	}
+}
