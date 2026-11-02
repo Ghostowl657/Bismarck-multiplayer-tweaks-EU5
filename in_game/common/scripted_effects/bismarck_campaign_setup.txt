@@ -1,0 +1,58 @@
+﻿# One campaign-wide execution, including when another player has an open decision.
+bismarck_apply_campaign_setup = {
+ if = {
+  limit = {
+   current_date < 1338.4.1
+   NOT = { has_global_variable = bismarck_campaign_setup_done }
+  }
+  set_global_variable = bismarck_campaign_setup_done
+  every_country = {
+   limit = { country_type = pop }
+   change_country_type = building
+   every_owned_building = { change_building_level = -10 }
+  }
+  sub_continent:east_asia = {
+   every_location_in_sub_continent = {
+    limit = { is_land = yes }
+    add_location_modifier = { modifier = bismarck_location_disabled years = -1 mode = add }
+    bismarck_strip_location = yes
+    every_pop = { destroy_pop = this }
+    change_development = -100
+    change_location_rank = location_rank:rural_settlement
+   }
+  }
+  sub_continent:south_america = { bismarck_remove_sub_continent = yes }
+  sub_continent:australasia = { bismarck_remove_sub_continent = yes }
+  sub_continent:pacific_islands = { bismarck_remove_sub_continent = yes }
+ }
+}
+bismarck_remove_sub_continent = {
+ every_location_in_sub_continent = {
+  limit = { is_land = yes }
+  bismarck_strip_location = yes
+ }
+}
+bismarck_strip_location = {
+ every_unit_in_location = { destroy_unit = yes }
+ every_buildings_in_location = { change_building_level = -100 }
+ if = {
+  limit = { has_owner = yes }
+  owner = { abandon_location = prev }
+ }
+}
+# Preserve original compensation for owned locations bordering East OR South Asia.
+bismarck_apply_meritocracy_spread = {
+ every_country = {
+  every_owned_location = {
+   limit = {
+    any_neighbor_location = {
+     OR = {
+      sub_continent = sub_continent:east_asia
+      sub_continent = sub_continent:south_asia
+     }
+    }
+   }
+   change_institution_progress = { type = institution:meritocracy value = 100 }
+  }
+ }
+}

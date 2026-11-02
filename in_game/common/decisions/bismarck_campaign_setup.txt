@@ -1,0 +1,22 @@
+﻿bismarck_campaign_setup = {
+ decision_category = other_decisions
+ only_once = yes
+ potential = {
+  is_ai = no
+  current_date < 1338.4.1
+  NOT = { has_global_variable = bismarck_campaign_setup_done }
+ }
+ allow = {
+  current_date < 1338.4.1
+  NOT = { has_global_variable = bismarck_campaign_setup_done }
+ }
+ ai_will_do = { value = 0 }
+ option = {
+  name = bismarck_campaign_setup.a
+  ai_chance = { value = 0 }
+  effect = {
+   custom_tooltip = bismarck_campaign_setup_effect_tt
+   hidden_effect = { bismarck_apply_campaign_setup = yes }
+  }
+ }
+}

@@ -1,0 +1,26 @@
+﻿yearly_country_pulse = { on_actions = { bismarck_meritocracy_spread } }
+bismarck_meritocracy_spread = {
+ trigger = {
+  has_global_variable = bismarck_campaign_setup_done
+  NOT = { has_global_variable = bismarck_meritocracy_spread_done }
+  current_year >= 1390
+ }
+ effect = {
+  set_global_variable = bismarck_meritocracy_spread_done
+  bismarck_apply_meritocracy_spread = yes
+ }
+}
+
+# Native location hook: disabled locations cannot retain a new owner.
+# has_owner prevents recursion after abandon_location fires this hook again.
+on_location_changed_owner = { on_actions = { bismarck_reject_disabled_settlement } }
+bismarck_reject_disabled_settlement = {
+ trigger = {
+  has_location_modifier = bismarck_location_disabled
+  has_owner = yes
+ }
+ effect = {
+  bismarck_strip_location = yes
+  every_pop = { destroy_pop = this }
+ }
+}
