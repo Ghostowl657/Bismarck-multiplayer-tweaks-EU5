@@ -1,0 +1,12 @@
+#!/bin/sh
+# Compare the staged blobs: working-tree equality cannot protect partial staging.
+set -eu
+
+fail() {
+    echo "pre-commit: AGENTS.md and CLAUDE.md must both exist and be identical in the commit. Edit and stage both files." >&2
+    exit 1
+}
+
+agents=$(git rev-parse --verify ':AGENTS.md' 2>/dev/null) || fail
+claude=$(git rev-parse --verify ':CLAUDE.md' 2>/dev/null) || fail
+[ "$agents" = "$claude" ] || fail
