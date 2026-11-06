@@ -1,0 +1,18 @@
+﻿# A consensual spectator pact; alliance politics do not determine eligibility.
+bismarck_vision_alliance_can_exist = {
+    $first$ = {
+        is_ai = no
+        is_rebel_country = no
+        NOT = { this = $second$ }
+        NOT = { is_allied_with = { target = $second$ } }
+        NOT = { is_at_war_with = $second$ }
+    }
+    $second$ = {
+        is_ai = no
+        is_rebel_country = no
+    }
+    can_create_subject_alliance = {
+        actor = $first$
+        recipient = $second$
+    }
+}
