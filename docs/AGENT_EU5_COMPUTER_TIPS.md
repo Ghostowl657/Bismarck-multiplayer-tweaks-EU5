@@ -17,6 +17,9 @@ Keep only verified workflows that help test unrelated features. Feature behavior
 - If one dialog covers a pausing event, drag it by its title bar to reveal the event choices. Resolve events and resume simulation; check the displayed date to confirm progress.
 - Verify save-name fields after typing: Ctrl+A may not select the existing text, and new text may append.
 - The in-game Exit button opens a choice between the main menu and desktop. Save test state before leaving.
+- The normal console is a translucent panel on the left with an `Insert command ...` field above its toolbox. Confirm visibility by focusing the field and observing typed text; confirm execution separately from text entry.
+- If injected shortcuts appear ineffective, test them in Settings > Input Bindings > Remap input. A blank capture while mouse input is recognized indicates an automation input problem. Temporarily binding the console to middle mouse can expose it for diagnosis, but clears Drag camera's binding; preserve and restore the original user bindings after closing the game.
+- With an explicit user exception to the computer-use skill's API-only restriction, `scripts/Send-Eu5ScanKey.ps1 -Key Grave` and `-Key Enter` send working Windows scan-code input. The helper also supports `ShiftF10` and `Escape`; it checks the installed executable and requires exactly one visible game process, then verifies EU5 is foreground before sending. Override `-GameExecutable` for a different installation. In the verified workflow, open the console with Grave, focus its input, enter text through the regular computer-use tool, submit with the helper's Enter, then capture a fresh screenshot: the immediate text-entry screenshot can precede the rendered update. The green FPS counter may remain after turning debug off; verify purple debug details or the console's ON/OFF response instead.
 
 ## Scripts and supporting evidence
 
