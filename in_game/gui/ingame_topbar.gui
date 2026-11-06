@@ -1,3 +1,4 @@
+﻿# Debug-toggle addition adapted from Free Console Access by Dsingis; see docs/AGENT_DEBUG_CONSOLE.md.
 ######################################################
 #################### META INFO #######################
 ######################################################
@@ -109,7 +110,7 @@ widget = {
 			using = color_intense_bg_blue_texture
 			alpha = 0.6
 		}
-		
+
 		modify_texture = {
 			using = overlay_paper_03
 			blend_mode = overlay
@@ -486,8 +487,8 @@ widget = {
 					duration = 0.2
 					bezier = { 0.0 1.0 0.0 1.0 }
 					alpha = 1
-				}						
-			
+				}
+
 				state = {
 					name = _hide
 					alpha = 0
@@ -550,7 +551,7 @@ widget = {
 							bezier = { 0.0 1.0 0.0 1.0 }
 							alpha = 1
 						}
-					
+
 						state = {
 							name = _hide
 							duration = 0.1
@@ -595,7 +596,7 @@ widget = {
 					position = { 0 -10 }
 				}
 			}
-			
+
 			mapmodes_button_color_ledger_map_marker = {
 				blockoverride "button_ledger_map_marker_position_visible" {
 					position = { -340 0 }
@@ -666,4 +667,22 @@ widget = {
 	filter_mouse = none
 
 	using = Animation_Show_Hide_UI
+
+	flowcontainer = {
+		name = "free_console_access_button"
+		spacing = 3
+		ignoreinvisible = yes
+		allow_outside = yes
+
+		position = { -1 963 }
+		dockable_button = {
+			visible = yes
+			size = { 0 0 }
+			text = ""
+			onclick = "[ExecuteConsoleCommand('debug_mode')]"
+			raw_tooltip = "Toggle debug mode (Top Right 10; default Shift+F10)"
+			input_action = "top_right_10"
+		}
+	}
+
 }

@@ -11,6 +11,7 @@ The root [AGENTS.md](../AGENTS.md) and [CLAUDE.md](../CLAUDE.md) contain identic
 - [Tea in the Columbian Exchange](AGENT_TEA_EXCHANGE.md): goods injection, planting rules, and historical validation.
 - [Fort spacing](AGENT_FORT_SPACING.md): builder and subject rules, gameplay tests, final checksums, and limits.
 - [Vanilla overrides](AGENT_OVERRIDE_AUDIT.md) documents the targeted replacements and game checks.
+- [Debug console](AGENT_DEBUG_CONSOLE.md): integrated debug shortcut, source attribution, scan-code input workflow, production checksums, and runtime evidence.
 
 Document each future mod change here, including what changed and why, affected files, runtime test setup and evidence, and anything not verified. Historical tests describe what was actually done; they are not precedents overriding the current testing requirements.
 
