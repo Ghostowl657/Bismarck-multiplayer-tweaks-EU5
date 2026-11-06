@@ -10,6 +10,7 @@ The root [AGENTS.md](../AGENTS.md) and [CLAUDE.md](../CLAUDE.md) contain identic
 - [Campaign setup and nation removal](AGENT_NATION_REMOVAL.md): behavior, implementation, historical test evidence, and limitations.
 - [Tea in the Columbian Exchange](AGENT_TEA_EXCHANGE.md): goods injection, planting rules, runtime tests, checksums, and limitations.
 - [Player alliances](AGENT_PLAYER_ALLIANCES.md): two-human opinion exception, vanilla trigger replacement, synthetic coverage, and production checks.
+- [Debug console](AGENT_DEBUG_CONSOLE.md): integrated debug shortcut, source attribution, scan-code input workflow, production checksums, and runtime evidence.
 
 Document each future mod change here, including what changed and why, affected files, runtime test setup and evidence, and anything not verified. Historical tests describe what was actually done; they are not precedents overriding the current testing requirements.
 
