@@ -1,6 +1,16 @@
 ﻿REPLACE:alliance_can_exist = {
+	# Human-human alliances ignore opinion; all other pairs use vanilla checks.
+	OR = {
+		AND = {
+			$first$ = { is_ai = no }
+			$second$ = { is_ai = no }
+		}
+		AND = {
+			$first$ = { opinion = { target = $second$ value >= 0 } }
+			$second$ = { opinion = { target = $first$ value >= 0 } }
+		}
+	}
 	$first$ = {
-		opinion = { target = $second$ value >= 0 }
 		not = { has_blocked_treaties = $second$ }
 		not = { is_subject_of = $second$ }
 		not = { is_rival_of = $second$ }
@@ -17,7 +27,6 @@
 		is_rebel_country = no
 	}
 	$second$ = {
-		opinion = { target = $first$ value >= 0 }
 		not = { has_blocked_treaties = $first$ }
 		not = { is_subject_of = $first$ }
 		not = { is_rival_of = $first$ }
@@ -35,7 +44,7 @@
 		recipient = $second$
 	}
 	trigger_if = {
-		limit = { 
+		limit = {
 			situation:hussite_wars ?= { situation_is_active = yes }
 		}
 		custom_tooltip = {
