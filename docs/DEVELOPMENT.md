@@ -8,6 +8,8 @@ The root [AGENTS.md](../AGENTS.md) and [CLAUDE.md](../CLAUDE.md) contain identic
 - [EU5 references](AGENT_EU5_RESOURCES.md): script/API reference starting points.
 - [Local path example](AGENT_LOCAL_PATHS.example.md): copy to `docs/AGENT_LOCAL_PATHS.md` and adjust locally; the copy is gitignored.
 - [Campaign setup and nation removal](AGENT_NATION_REMOVAL.md): behavior, implementation, historical test evidence, and limitations.
+- [Tea in the Columbian Exchange](AGENT_TEA_EXCHANGE.md): goods injection, planting rules, and historical validation.
+- [Fort spacing](AGENT_FORT_SPACING.md): builder and subject rules, gameplay tests, final checksums, and limits.
 
 Document each future mod change here, including what changed and why, affected files, runtime test setup and evidence, and anything not verified. Historical tests describe what was actually done; they are not precedents overriding the current testing requirements.
 
