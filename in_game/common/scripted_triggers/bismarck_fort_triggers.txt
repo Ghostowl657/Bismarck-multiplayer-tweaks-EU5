@@ -1,0 +1,35 @@
+﻿# Root is the proposed building location; actor is the country paying.
+bismarck_fort_spacing_allowed = {
+    custom_tooltip = {
+        text = bismarck_fort_spacing_allowed_tt
+        OR = {
+            scope:actor = {
+                is_ai = yes
+                NOT = { any_overlord_or_above = { is_ai = no } }
+            }
+            NOT = {
+                any_neighbor_location = {
+                    OR = {
+                        has_building = building_type:stockade
+                        has_building = building_type:castle
+                        has_building = building_type:bastion
+                        has_building = building_type:star_fort
+                        has_building = building_type:fortress
+                    }
+                    owner ?= {
+                        OR = {
+                            this = scope:actor
+                            is_subject_or_below_of = scope:actor
+                            scope:actor = { is_subject_or_below_of = prev }
+                            AND = {
+                                exists = top_overlord
+                                scope:actor = { exists = top_overlord }
+                                top_overlord = scope:actor.top_overlord
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
