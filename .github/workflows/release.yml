@@ -1,0 +1,33 @@
+name: Release Mod
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Package mod files
+        run: |
+          zip -r Bismarck-Multiplayer-Tweaks.zip \
+            .metadata \
+            in_game \
+            loading_screen \
+            main_menu
+
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${GITHUB_REF_NAME}" \
+            Bismarck-Multiplayer-Tweaks.zip \
+            --generate-notes
