@@ -1,0 +1,22 @@
+﻿# Inspired by Gekkaversalis Rebalance Campaign v3.2 (Workshop 3791919953).
+# New actor-scoped implementation; vanilla fort definitions remain inherited.
+INJECT:stockade = { allow = { bismarck_fort_spacing_allowed = yes } }
+INJECT:castle = { allow = { bismarck_fort_spacing_allowed = yes } }
+INJECT:bastion = {
+    allow = {
+        bismarck_fort_spacing_allowed = yes
+        NOT = { has_building = building_type:city_walls }
+    }
+}
+INJECT:star_fort = {
+    allow = {
+        bismarck_fort_spacing_allowed = yes
+        NOT = { has_building = building_type:city_walls }
+    }
+}
+INJECT:fortress = {
+    allow = {
+        bismarck_fort_spacing_allowed = yes
+        NOT = { has_building = building_type:city_walls }
+    }
+}

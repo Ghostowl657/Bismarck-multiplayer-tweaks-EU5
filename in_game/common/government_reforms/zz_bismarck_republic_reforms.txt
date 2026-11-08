@@ -1,0 +1,18 @@
+﻿REPLACE:merchant_republic = {
+	major = yes
+	government = republic
+
+	country_modifier = {
+		global_merchant_capacity_modifier = 0.35
+		trade_income = 0.10
+		global_foreign_build_buildings_efficiency = 1.0
+
+		merchant_maintenance_efficiency = 0.50
+		global_integration_speed_modifier = -0.25
+		court_language_is_market_language_importance_modifier = 15
+		max_trade_subventions = 0.15
+
+	}
+
+	years = 2
+}
