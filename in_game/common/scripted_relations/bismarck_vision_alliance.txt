@@ -1,0 +1,36 @@
+﻿bismarck_vision_alliance = {
+    type = diplomacy
+    relation_type = mutual
+    uses_diplo_capacity = none
+    block_when_at_war = no
+    break_on_war = yes
+    break_on_becoming_subject = yes
+    lifts_fog_of_war = yes
+    skip_diplomat_for_cancel = yes
+    mutual_color = rgb { 80 180 220 }
+    category = {
+        offer = CATEGORY_FRIENDLY_ACTIONS
+        cancellation = CATEGORY_FRIENDLY_ACTIONS
+        request = CATEGORY_FRIENDLY_ACTIONS
+        break = CATEGORY_FRIENDLY_ACTIONS
+    }
+    request_visible = { always = no }
+    break_visible = { always = no }
+    offer_enabled = {
+        bismarck_vision_alliance_can_exist = {
+            first = scope:actor
+            second = scope:recipient
+        }
+    }
+    cancel_enabled = { always = yes }
+    will_expire_trigger = {
+        NOT = {
+            bismarck_vision_alliance_can_exist = {
+                first = scope:first
+                second = scope:second
+            }
+        }
+    }
+    should_ai_offer_trigger = { always = no }
+    wants_to_give_diplo_chance = { base = -1000 }
+}

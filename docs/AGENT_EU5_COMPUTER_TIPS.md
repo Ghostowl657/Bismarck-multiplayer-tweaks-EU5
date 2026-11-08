@@ -23,6 +23,10 @@ Keep only verified workflows that help test unrelated features. Feature behavior
 
 ## Scripts and supporting evidence
 
+- To replace an existing named scripted trigger from a separate mod file, use
+  `REPLACE:<trigger_name> = { ... }`. A bare duplicate key is rejected rather
+  than overriding vanilla; check `error.log` and verify the normal UI uses the
+  replacement.
 - Native decision localization uses `<id>.title` and `<id>.desc`. Use UTF-8 BOM for new EU5 script/localization files to avoid lexer warnings.
 - Expensive effect loops can stall tooltip generation. Use a concise `custom_tooltip` and `hidden_effect`, then verify both the UI and execution.
 - In readable saves, the metadata location list maps one-based numeric IDs to names; live locations are in `locations.locations`, and pops are in `population.pops`.
