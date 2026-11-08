@@ -7,7 +7,7 @@ Implements [issue #4](https://github.com/Ghostowl657/Bismarck-multiplayer-tweaks
 `in_game/common/scripted_triggers/zz_bismarck_alliance_triggers.txt` uses
 `REPLACE:alliance_can_exist` to replace only the named vanilla trigger. Both
 countries must have `is_ai = no` to bypass the two nonnegative opinion checks.
-Humanâ€“AI and AIâ€“AI pairs still require nonnegative opinion in both directions.
+Human–AI and AI–AI pairs still require nonnegative opinion in both directions.
 Every other condition is copied from the installed EU5 1.4.7 definition,
 including subject diplomacy, rivals, blocked treaties, unions, coalitions,
 rebels, alliance permissions, hegemons, and opposing Hussite Wars sides.
@@ -20,7 +20,7 @@ Other mods replacing the same trigger can conflict; future vanilla updates to
 this trigger must be reviewed and incorporated.
 
 The historical implementation in commit `0007c5d` changed each country's own
-opinion check to `opinion >= 0 OR is_ai = no`, also affecting humanâ€“AI pairs.
+opinion check to `opinion >= 0 OR is_ai = no`, also affecting human–AI pairs.
 Commit `2b5c5d2` removed it during the 1.4 cleanup. This version intentionally
 implements the user's narrower two-human rule.
 
@@ -95,10 +95,10 @@ The Mods & DLCs UI again showed **(Applied) Bismarck Tuesday**, with only the
 v3.0 Bismarck mod enabled. Continue loaded the original **March 1, 1338**
 checkpoint, without saving or reusing the synthetic alliance campaign.
 
-- Franceâ€“Portugal: natural opinions **+31.93** and **+24.76**; normal Offer
+- France–Portugal: natural opinions **+31.93** and **+24.76**; normal Offer
   Alliance confirmation opened. AI acceptance remained separate and negative.
-- Franceâ€“England: the normal requirements tooltip showed both nonnegative
-  opinion checks failing and both rivalry restrictions failing. The humanâ€“AI
+- France–England: the normal requirements tooltip showed both nonnegative
+  opinion checks failing and both rivalry restrictions failing. The human–AI
   pair did not receive the exception.
 
 This production debug-off run advanced **March 1 to August 1, 1338**, five
@@ -151,7 +151,7 @@ A single-player run cannot satisfy the real two-human predicate. Synthetic
 coverage replaces only those two checks with per-country test flags. It does
 not prove genuine multiplayer behavior, human disconnect/reconnect handling,
 or synchronization. The synthetic UI checks cover offer eligibility, not a
-formed humanâ€“human alliance persisting at negative opinion; expiry's use of
+formed human–human alliance persisting at negative opinion; expiry's use of
 the same trigger was verified from the vanilla relation definition. The runtime
 non-opinion regression check covers rivalry; the other retained restrictions
 were compared statically. No multiplayer or long-term stability claim is made.

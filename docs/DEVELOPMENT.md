@@ -10,7 +10,6 @@ The root [AGENTS.md](../AGENTS.md) and [CLAUDE.md](../CLAUDE.md) contain identic
 - [Campaign setup and nation removal](AGENT_NATION_REMOVAL.md): behavior, implementation, historical test evidence, and limitations.
 - [Player alliances](AGENT_PLAYER_ALLIANCES.md): two-human opinion exception, vanilla trigger replacement, synthetic coverage, and production checks.
 - [Vision alliance](AGENT_VISION_ALLIANCE.md): consensual spectator pact, proxy coverage, and final production checks.
-- [Vanilla override audit](AGENT_OVERRIDE_AUDIT.md): read-only candidates for a separate refactoring session.
 
 Document each future mod change here, including what changed and why, affected files, runtime test setup and evidence, and anything not verified. Historical tests describe what was actually done; they are not precedents overriding the current testing requirements.
 
