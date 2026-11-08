@@ -1,0 +1,40 @@
+﻿# Root is the proposed building location; actor is the country paying.
+bismarck_fort_spacing_allowed = {
+    custom_tooltip = {
+        text = bismarck_fort_spacing_allowed_tt
+        OR = {
+            scope:actor = {
+                is_ai = yes
+                NOT = { any_overlord_or_above = { is_ai = no } }
+            }
+            # Capitals may always fortify, and a capital's fort never blocks its neighbors.
+            is_capital = yes
+            NOT = {
+                any_neighbor_location = {
+                    is_capital = no
+                    OR = {
+                        has_building = building_type:stockade
+                        has_building = building_type:castle
+                        has_building = building_type:bastion
+                        has_building = building_type:star_fort
+                        has_building = building_type:fortress
+                    }
+                    owner ?= {
+                        OR = {
+                            this = scope:actor
+                            is_subject_or_below_of = scope:actor
+                            scope:actor = { is_subject_or_below_of = prev }
+                            AND = {
+                                exists = top_overlord
+                                scope:actor = { exists = top_overlord }
+                                top_overlord = scope:actor.top_overlord
+                            }
+                        }
+                    }
+                    # A fort across a strait does not block (see bismarck_strait_triggers.txt).
+                    NOT = { bismarck_is_strait_crossing_to_prev = yes }
+                }
+            }
+        }
+    }
+}
