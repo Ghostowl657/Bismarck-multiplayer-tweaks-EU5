@@ -1,6 +1,6 @@
 ﻿l_english:
  bismarck_campaign_setup.title: "Apply Bismarck Campaign Setup"
- bismarck_campaign_setup.desc: "Available before 1 April 1338, once per campaign: remove Societies of Pops and abandon East Asia, South America, Australasia and the Pacific Islands. East Asia also loses its population and is permanently blocked from colonization. South Asia and Southeast Asia remain intact. Great Pestilence is unchanged. From 1390, Meritocracy will receive the original border-region compensation."
+ bismarck_campaign_setup.desc: "Available before 1 April 1338, once per campaign: remove Societies of Pops and abandon East Asia, South America, Australasia and the Pacific Islands. East Asia also loses its population and is permanently blocked from colonization. After 1390, Meritocracy will receive a spread compensation."
  bismarck_campaign_setup.a: "Apply campaign setup"
  STATIC_MODIFIER_NAME_bismarck_location_disabled: "Bismarck: Colonization Disabled"
- bismarck_campaign_setup_effect_tt: "Remove Societies of Pops. Abandon East Asia, South America, Australasia and the Pacific Islands. Depopulate and disable East Asia permanently. Preserve South Asia, Southeast Asia and vanilla Great Pestilence. Enable the original Meritocracy border compensation from 1390."
+ bismarck_campaign_setup_effect_tt: "Remove Societies of Pops. Abandon East Asia, South America, Australasia and the Pacific Islands. Depopulate and disable East Asia permanently. Enable Meritocracy spread compensation from 1390."
