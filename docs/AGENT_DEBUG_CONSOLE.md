@@ -2,6 +2,8 @@
 
 Tracks [issue #3](https://github.com/Ghostowl657/Bismarck-multiplayer-tweaks-EU5/issues/3).
 
+The runs below used the earlier branch, which also contained the player-alliance opinion exception and tea. The toggle now ships on the single-player branch with tea, fort spacing, and the targeted vanilla overrides, without the alliance changes. Its recorded checksums apply only to those earlier builds. The combined branch has not been launched with the toggle, so its checksum is unknown.
+
 ## Source inspection (November 5, 2026)
 
 [Free Console Access by Dsingis](https://steamcommunity.com/sharedfiles/filedetails/?id=3600131257)

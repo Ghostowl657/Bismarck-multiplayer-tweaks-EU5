@@ -36,6 +36,20 @@ EU5 **1.4.7 (Rio Salado)**, temporary checksum **3033** with debug on. Debug-off
 
 The checks cover loaded values and requirements in the UI, with a single-player simulation smoke test. This candidate build used injections for the building, reform, and winter definitions. Building construction, reform enactment, fleet attrition ticks, government conversion effects, and multiplayer were outside the test scope.
 
+## Production build checks
+
+November 7, 2026, EU5 **1.4.7 (Rio Salado)**. A disposable user profile applied the **Bismarck Tuesday** playset with only **Bismarck multiplayer tweaks v3.0** and one DLC enabled. Before launch, the mod copy matched the PR checkout by SHA-256 with no extra game files. This build is commit `9b9a61e`, before the debug toggle joined this branch.
+
+- Checksums at the main menu: **18fb, debug on**; **35aa, debug off**. Both were read from the main-menu version panel. The debug-off launch was a startup and playset check only.
+- In a paused April 1, 1337 campaign as Venice, Europedia showed Colonial Administration with **+0.50** Trade Advantage and **+0.50** Trade Capacity to Owner, and 0.10 Paper. Merchant Republic showed **+35%** Trade Capacity and **+10%** Trade Income, with its other modifiers unchanged. The Normal and Severe Winter tooltips listed no naval attrition. Languages > German listed **Dutch** among the cultures.
+- With Country Change Allowed enabled in the same paused campaign, Venice's republic-to-monarchy and republic-to-theocracy tooltips showed **60 Aristocracy** and **60 Spiritualist**. France's monarchy tooltips showed **60 Plutocracy** and **60 Spiritualist**. The Teutonic Order's theocracy tooltips showed **60 Aristocracy**, and **60 Plutocracy** or **50 Humanist**.
+- Logs: the startup with the duplicate production-method ID is described above. The final build logged no errors at the replacement files during startup. Opening the Colonial Administration Europedia page logged `Invalid location found for link 'location'` at `zz_bismarck_foreign_buildings.txt:37`. That line is the `remove_if` copied unchanged from vanilla `foreign_buildings.txt:337`, evaluated with no location in scope. It is probably a vanilla error, but it was not compared with an unmodded run. Other errors came from vanilla scripts, missing DLC thumbnails, and the existing map-sharing message types.
+- EU5 was closed after the checks.
+
+As the user requested, this run checked loaded values with the game paused and never unpaused. It does not meet the three-month stability requirement in `AGENTS.md`. The behavior is unchanged from the former whole-file overrides, and the candidate runs above simulated the same conversion entries. The building, reform, and winter replacements have no unpaused production run. Neither does the combined branch with the debug toggle, which has no observed checksum.
+
+The run checks loaded values and requirements in the UI. It does not cover building construction, reform enactment, fleet attrition ticks, conversion effects, or multiplayer.
+
 ## Other observations
 
 Tea injects three fields absent from the vanilla `tea` block. The fort rules inject build conditions and have separate test coverage. The player-alliance implementation already uses `REPLACE:alliance_can_exist` for the complete named vanilla trigger.
