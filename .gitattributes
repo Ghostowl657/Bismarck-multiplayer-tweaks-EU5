@@ -4,3 +4,9 @@
 in_game/common/building_types/bismarck_fort_spacing.txt text eol=lf
 in_game/common/scripted_triggers/bismarck_fort_triggers.txt text eol=crlf
 main_menu/localization/english/bismarck_forts_l_english.yml text eol=lf
+in_game/common/building_types/zz_bismarck_foreign_buildings.txt text eol=lf
+in_game/common/generic_actions/zz_bismarck_government_conversions.txt text eol=lf
+in_game/common/government_reforms/zz_bismarck_republic_reforms.txt text eol=lf
+main_menu/common/static_modifiers/zz_bismarck_winter.txt text eol=lf
+main_menu/localization/english/bismarck_foreign_buildings_l_english.yml text eol=lf
+main_menu/localization/english/replace/bismarck_cultures_l_english.yml text eol=lf
