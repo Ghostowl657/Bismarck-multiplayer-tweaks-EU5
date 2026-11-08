@@ -4,7 +4,9 @@ Adds actor-scoped spacing checks for stockade, castle, bastion, star_fort, and f
 
 Human builders and AI builders with a human overlord anywhere in their hierarchy cannot build next to an existing listed fort in their own realm. Realm includes the builder, its ancestors/descendants, and countries sharing its top overlord. Independent AI realms remain exempt regardless of the construction location; a human building in an AI subject is restricted. The upstream advanced-fort restriction against city walls is retained for all builders. The rule uses `allow` to provide an explanatory disabled requirement and a documented `scope:actor`, rather than relying on `location_potential` to supply the builder.
 
-Files: `in_game/common/building_types/bismarck_fort_spacing.txt`, `in_game/common/scripted_triggers/bismarck_fort_triggers.txt`, `main_menu/localization/english/bismarck_forts_l_english.yml`.
+Two exceptions apply. A capital may always build a fort, and a fort in a capital never blocks its neighbors (`is_capital`, so subject capitals count too). A fort across a strait never blocks either. EU5's `any_neighbor_location` includes locations joined by a strait crossing, and no script trigger tells those apart from land borders. So `bismarck_is_strait_crossing_to_prev` lists the 184 `sea` crossings from vanilla `in_game/map_data/adjacencies.csv`, both directions, compared against `prev`, the location whose neighbors are being checked. Canals are excluded. After a game update changes the map, rerun `scripts/Update-StraitTrigger.ps1` and review the diff. A pair that shares a land border as well as a strait would also be exempt. No such pair was checked for.
+
+Files: `in_game/common/building_types/bismarck_fort_spacing.txt`, `in_game/common/scripted_triggers/bismarck_fort_triggers.txt`, `in_game/common/scripted_triggers/bismarck_strait_triggers.txt` (generated). The fort trigger now uses LF line endings, matching the tested bytes, `scripts/Update-StraitTrigger.ps1`, `main_menu/localization/english/bismarck_forts_l_english.yml`.
 
 No automatic demolition or retroactive cleanup is introduced. Existing/conquered forts remain. Only existing buildings are checked; concurrent construction queues are not explicitly counted. Special fort buildings outside the five listed types are unaffected. These limits must not be mistaken for continuous map-wide enforcement.
 
@@ -23,6 +25,21 @@ Montmorency was restored to France. A first attempt to clear neighboring forts u
 The disposable campaign advanced from **August 1, 1338 to May 6, 1339**, over nine simulated months, crossing monthly updates. By the final observation, the castle's remaining construction time had fallen to **337 days**. Events and test wars are recorded in the shared console transcript and the vision PR feature record. No date jumps or edited saves were used; the run was not saved. No new crash directory appeared. Apart from the failed console quoting setup, no new fort-file errors were observed. The temporary vision predicate was removed and production restarted afterward.
 
 Not covered: completed late-age fort upgrades, independent AI's autonomous site selection, concurrent adjacent construction queues, or true multiplayer. The AI-subject branch was evaluated by the engine with an AI builder scope; it was not presented as a human tagswitch proving autonomous AI behavior. The advanced-fort city-wall condition and five injections were checked statically.
+
+### Capital and strait exceptions (November 7, 2026)
+
+EU5 **1.4.7 (Rio Salado)**, checksum **4d0d, debug on**. Debug-off checksum is unknown. A disposable profile applied **Bismarck Tuesday** with only **Bismarck multiplayer tweaks v3.0** and the Monumental Bonus DLC. The other three DLCs showed as unavailable in a direct launch without Steam. The mod copy matched this checkout's working tree by SHA-256. An earlier launch of the first draft, which compared against `root`, showed **5c51, debug on**. That build was replaced before testing, because `prev` does not depend on what `root` is in a building's `allow`.
+
+New campaign as Naples, April 1, 1337, paused:
+
+- `effect if = { limit = { location:messina = { any_neighbor_location = { this = location:reggiocal } } } add_gold = 1000 } else = { add_gold = -1000 }` reported **+1000**: the engine counts Messina and Reggio Calabria, across the Strait of Messina, as neighbors. The location tooltip in debug mode also listed `messina` among Reggio's neighbors.
+- A read-only query (+41 gold) showed that Messina had a fort and belonged to Sicily, Reggio belonged to Naples with no fort and no other Naples fort next to it, and the Naples capital had a fort.
+- `effect location:messina = { change_location_owner = c:NAP }` set up the strait case.
+- With `save_scope_as = actor` for Naples, seven conditional gold checks returned exactly the expected **+55**. Reggio passed `bismarck_fort_spacing_allowed` while next to Messina's Naples fort, which the old rule would have blocked. Capital neighbors whose only nearby Naples fort was the capital's existed, and none failed. The capital passed. Naples locations next to a non-capital, non-strait Naples fort existed, and none passed.
+- In the normal UI, Riggie de Calabbria > Military > Fort Level offered **Castle**. Clicking its build button queued **Castle in Riggie de Calabbria (605 days)** and spent 250 gold. It later stalled for lack of stone in the Naples market, which is ordinary economics.
+- After unpausing, the game reached **June 1, 1337** (two monthly updates). The Angevin Library event (hire more people) and the Guelph/Ghibelline report were resolved. The error log had no entries from the fort or strait files and no invalid `location:` references. Its script errors came from vanilla `character_triggers.txt:87`.
+
+The capital case was checked through the engine only, not through the construction UI. The stability run past three months, the debug-off checksum, and multiplayer were not covered by this agent run. The user took over the in-game test at June 1, 1337.
 
 ### Final production build
 
