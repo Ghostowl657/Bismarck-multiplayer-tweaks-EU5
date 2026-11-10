@@ -1,0 +1,9 @@
+﻿l_english:
+ bismarck_hre_alleviate_concerns: "$alleviate_concerns$"
+ bismarck_hre_alleviate_concerns_desc: "$alleviate_concerns_desc$"
+ bismarck_hre_alleviate_concerns_action: "$alleviate_concerns_action$"
+ bismarck_hre_alleviate_concerns_active: "$alleviate_concerns_active$"
+ bismarck_hre_alleviate_concerns_action_progress: "$alleviate_concerns_action_progress$"
+ bismarck_hre_alleviate_concerns_action_progress_wordier: "$alleviate_concerns_action_progress_wordier$"
+ bismarck_hre_alleviate_concerns_action_progress_long_wordier: "$alleviate_concerns_action_progress_long_wordier$"
+ bismarck_hre_alleviate_concerns_action_progress_tooltip: "$alleviate_concerns_action_progress_tooltip$"

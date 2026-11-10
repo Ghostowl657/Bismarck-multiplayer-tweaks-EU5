@@ -113,7 +113,7 @@
 	}
 
 	land_ownership_rule = hre_land_ownership
-	antagonism_modifier_for_taking_land_from_fellow_member = 1.25	  # Members get more Antagonism in the HRE
+	antagonism_modifier_for_taking_land_from_fellow_member = 0	  # Members get more Antagonism in the HRE
 	antagonism_modifier_for_taking_land_from_member_as_outsider = 2.0 # Outsiders get even more Antagonism in the HRE
 	no_cb_price_modifier_for_fellow_member = 1
 

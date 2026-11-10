@@ -9,6 +9,7 @@ The root [AGENTS.md](../AGENTS.md) and [CLAUDE.md](../CLAUDE.md) contain identic
 - [Local path example](AGENT_LOCAL_PATHS.example.md): copy to `docs/AGENT_LOCAL_PATHS.md` and adjust locally; the copy is gitignored.
 - [Campaign setup and nation removal](AGENT_NATION_REMOVAL.md): behavior, implementation, historical test evidence, and limitations.
 - [Player alliances](AGENT_PLAYER_ALLIANCES.md): two-human opinion exception, vanilla trigger replacement, synthetic coverage, and production checks.
+- [HRE antagonism](AGENT_HRE_ANTAGONISM.md): imperial land-taking surcharge, early cabinet access, and test provenance.
 - [Vision alliance](AGENT_VISION_ALLIANCE.md): consensual spectator pact, proxy coverage, and final production checks.
 - [Tea in the Columbian Exchange](AGENT_TEA_EXCHANGE.md): goods injection, planting rules, and historical validation.
 - [Fort spacing](AGENT_FORT_SPACING.md): builder and subject rules, gameplay tests, final checksums, and limits.

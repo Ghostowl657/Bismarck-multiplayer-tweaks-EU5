@@ -1,0 +1,24 @@
+﻿bismarck_hre_alleviate_concerns = {
+	ability = dip
+	
+	potential = {
+        	AND = {
+            		is_ai = no
+            		is_member_of_international_organization = international_organization:hre
+        	}
+	}
+
+	allow = {
+		has_countries_with_timed_antagonism = yes
+	}
+
+	country_modifier = {
+		antagonism_monthly_change_modifier = 0.1 #speed up those decays, lads
+	}
+
+	is_finished = {
+		scope:actor = {
+			has_countries_with_timed_antagonism = no
+		}
+	}
+}
